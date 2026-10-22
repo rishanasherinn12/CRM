@@ -7,3 +7,14 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+# PWA: always revalidate the service worker so new deploys are picked up promptly
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json"
